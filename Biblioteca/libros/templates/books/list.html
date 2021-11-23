@@ -1,0 +1,28 @@
+{% extends 'layouts/layout.html' %}
+
+{% block title %} {{title}} {% endblock %}
+
+{% block content %}
+    <h1 class="title alert alert-secondary alert-link">{{title}} </h1>
+    {% if messages != "" %}
+        {% for message in messages%}
+            <h3 class="title alert alert-success alert-link">{{message}} </h3>
+        {% endfor %}
+    {% endif %}
+    <h4 class="title alert alert-light alert-link text-center"><a class="new-element" href="{% url 'create-book' %}">Nuevo Libro</a></h5>
+    <div class="row">
+        <div class="col-md-7 text-right"><label for="buscador" class="form-label">Categor&iacute;a:</label></div>
+        <div class="col-md-4 text-center">
+            <input class="form-control"id="find" type="input" value="" placeholder="Escribe la categor&iacute;a a buscar">
+        </div>
+        <div class="col-md-1 text-center">
+            <div class="spinner-border text-primary d-none" role="status">
+                <span class="sr-only">Loading...</span>
+            </div>
+        </div>
+    </div>
+    {%for book in books %}
+        {% include 'books/book.html' with book=book nolink=0 %}
+    {% endfor %}
+
+{% endblock %}

@@ -1,0 +1,18 @@
+{% extends 'layouts/layout.html' %}
+
+{% block title %} {{title}} {% endblock %}
+
+{% block content %}
+    <h1 class="title alert alert-secondary alert-link">{{title}} </h1>
+    {% if messages != "" %}
+        {% for message in messages%}
+            <h3 class="title alert alert-success alert-link">{{message}} </h3>
+        {% endfor %}
+    {% endif %}
+    <h4 class="title alert alert-light alert-link text-center"><a class="new-element" href="{% url 'create-category' %}">Nueva Categor&iacute;a</a></h5>
+    
+    {%for category in categories %}
+        {% include 'categories/category.html' with category=category nolink=0 %}
+    {% endfor %}
+
+{% endblock %}

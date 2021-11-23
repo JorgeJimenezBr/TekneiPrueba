@@ -1,0 +1,37 @@
+{% extends 'layouts/layout.html' %}
+
+{% block title %} {{title}} {% endblock %}
+
+{% block content %}
+    <h1 class="title alert alert-secondary alert-link">{{title}} </h1>
+    {% if edition != 0 %}
+        {% include 'categories/category.html' with category=category nolink=1 delete='d-none' %}
+        <div class="col-sm-12 text-center">
+            <button id="btnEdition" class="btn btn-warning" type="button" typeevent="0">Edici&oacute;n</button>
+        </div>
+    {% endif %}
+    <div id="divAddEdition" class="col-sm-12 {{show_edition}}">
+        <form class="row g-3" action="{% url 'save-category' %} " method="POST">
+            {% csrf_token %}
+            <div class="col-md-12 position-relative">
+                <label for="name" class="form-label">Nombre de la categoría</label>
+                <input type="text" class="form-control" id="name_category" name="name" minlength="5" value="{{category.name}}" placeholder="Escribe el nombre de la categoría" required>
+                <div class="invalid-tooltip">
+                    Escribe el nombre de la categoría
+                </div>
+            </div>
+            <div class="col-md-12 position-relative">
+                <label for="description" class="form-label">Descripción</label>
+                <textarea class="form-control" id="description_category" name="description" minlength="10" rows="3" required>{{category.description}}</textarea>
+                <div class="invalid-tooltip">
+                    Se requiere una breve descripción
+                </div>
+            </div>            
+            <div class="col-md-12 text-center">
+                <input type="hidden" name="edition" value="{{edition}}">
+                <button id="btnAdd" class="btn btn-primary" type="submit" disabled>{{button}}</button>
+            </div>
+        </form>
+    </div>
+
+{% endblock %}

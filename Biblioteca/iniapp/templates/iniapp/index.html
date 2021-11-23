@@ -1,0 +1,32 @@
+{% extends 'layouts/layout.html' %}
+
+{% block title %} {{title}} {% endblock %}
+
+{% block content %}
+    <h1 class="title alert alert-secondary alert-link">{{title}} </h1>
+    <div class="row">
+        <div class="col-sm-6">
+            <div class="card">
+                <a href="{% url 'list_categories' %}" class="btn btn-primary">
+                    <img src="static/images/Categorias.jpg" height="360px" class="card-img-top imgIni" alt="Categorias">
+                    <div class="card-body">
+                        <h5 class="card-title">Categor&iacute;as</h5>
+                        <p class="card-text">Se muestra las categor&iacute;s existentes en el sistema.</p>                    
+                    </div>
+                </a>
+            </div>
+        </div>
+        <div class="col-sm-6">
+            <div class="card">
+                <a href="{% url 'list_books' %}" class="btn btn-primary">
+                    <img src="static/images/Libros.jpg" height="360px" class="card-img-top imgIni" alt="Categorias">
+                    <div class="card-body">
+                        <h5 class="card-title">Libros</h5>
+                        <p class="card-text">Se proporciona los libros registrados en el sistema.</p>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </div>
+
+{% endblock %}

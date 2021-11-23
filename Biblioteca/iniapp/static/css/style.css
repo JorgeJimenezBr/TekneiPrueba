@@ -1,0 +1,153 @@
+*{
+    margin: 0px;
+    padding: 0px;
+    font-family: Arial, Helvetica, sans-serif;
+    text-decoration: none;
+}
+
+.clearfix{
+    clear: both;
+    float: none;
+}
+
+#content{
+    margin: 0 auto;
+    margin-bottom: 30px;
+}
+
+.new-element{
+    text-decoration: underline;
+    color: darkgreen;
+}
+
+.new-element:hover {
+    color: lightgreen;
+    text-decoration: underline;
+}
+
+.select-element{
+    text-decoration: none;
+    color: lightgreen;
+}
+
+.select-element:hover {
+    color: darkseagreen;
+    text-decoration: underline;
+}
+
+.select-other-element{
+    text-decoration: none;
+    color: lightblue;
+}
+
+.select-other-element:hover {
+    color: darkseablue;
+    text-decoration: underline;
+}
+
+.category-item, .book-item{
+    margin-bottom: 20px;
+    margin-top: 20px;
+    padding: 15px;
+    border-bottom: 1px solid;
+    clear: both;
+    display: flex;
+}
+
+.category-item .data, .book-item .data{
+    float: left;
+    padding: 15px;
+    padding-top: 0;
+    display: contents;
+}
+
+.book-item .image {
+    padding: 20px 60px 0;
+}
+
+.book-item img {
+    width: 200px;
+    height: 200px;
+}
+
+.category-item h2, .book-item h5 {
+    font-size: 25px;
+    color: #333;
+    margin-bottom: 10px;
+    padding: 20px 0;
+    max-width: 126px;
+}
+
+.category-item h3 {
+    padding-top: 5px;
+}
+
+.category-item span, .book-item span {
+    font-size: 15px;
+    color: gray;
+    margin-bottom: 10px;
+    display: block;
+    padding: 24px 10px;
+    max-width: 150px;
+}
+
+.category-item p, .book-item p {
+    padding: 20px;
+    max-width: 680px;
+}
+
+.textcut{
+    width: 300px;
+    padding: 0 !important;
+    white-space: pre;
+    text-overflow: ellipsis;
+    overflow: hidden;
+}
+
+.btn.btn-primary, .btn.btn-warning,
+.btn.btn-danger{
+    width: 80%;
+    margin-top: 25px;
+}
+
+.form-label {
+    padding: 6px 30px 0 0;
+}
+
+.invalid-tooltip {
+    margin: 0 15px;
+}
+
+.category-item .nameElement{
+    color: #47a3f2;
+    font-size: 25px;
+    padding: 0;
+}
+
+@media (max-width: 1200px) {
+    .book-item img {
+        width: 400%;
+        height: 10%;
+    }
+}
+
+@media (max-width: 991px) { 
+    .imgIni, .image{
+        display: none;
+    }
+
+    .category-item .data, .book-item .data{
+        display: block !important;
+    }
+
+    .category-item h3, .del_book {
+        text-align: center;
+    }
+    .btn.btn-primary{
+        width: 100%;
+    }
+
+    select optgroup{
+        font-size: 14.4px;
+    }
+}

@@ -1,0 +1,40 @@
+        <book class="book-item">
+            {% if book.front != 'null' and book.front.url|length >= 1 %}
+                <div class="image">
+                    <img src={{book.front.url}} />
+                </div>
+            {% endif %}
+            <div class="data">
+                <h5>
+                    {% if nolink == 0 %}
+                        <a class="select-element" href="{% url 'book' book.id %}">{{book.title}} </a>
+                    {% else %}
+                        <span class="nameElement">{{book.title}}</span>
+                    {% endif %}
+                </h5>
+                <h5>
+                    {% for category in book.categories.all %}
+                        <a class="select-other-element categories" href="{% url 'category' category.id %} ">{{category}} </a>
+
+                        {% if forloop.counter < book.categories.all|length%}
+                            {{' '}}
+                        {% endif %}
+                    {% endfor %}
+                </h5>
+                <span class"date">
+                    {{book.author}} - {{book.year}} 
+                </span>
+                <p {% if nolink != 1 %} class="textcut" {% endif %}>
+                    {{book.description| safe}} 
+                </p>
+                <p class="del_book {{delete}}">
+                    <a href="{% url 'del_book' book.id %} " class="btn btn-delete">
+                        <button type="button" class="btn btn-secondary" alt="Eliminar Libro">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-trash-fill" viewBox="0 0 16 16">
+                                <path d="M2.5 1a1 1 0 0 0-1 1v1a1 1 0 0 0 1 1H3v9a2 2 0 0 0 2 2h6a2 2 0 0 0 2-2V4h.5a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1H10a1 1 0 0 0-1-1H7a1 1 0 0 0-1 1H2.5zm3 4a.5.5 0 0 1 .5.5v7a.5.5 0 0 1-1 0v-7a.5.5 0 0 1 .5-.5zM8 5a.5.5 0 0 1 .5.5v7a.5.5 0 0 1-1 0v-7A.5.5 0 0 1 8 5zm3 .5v7a.5.5 0 0 1-1 0v-7a.5.5 0 0 1 1 0z"></path>
+                            </svg>
+                        </button>
+                    </a>
+                </p>
+            </div>
+        </book>
